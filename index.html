@@ -21,12 +21,12 @@
     </section>
     <section>
         <div class="filter-options">
-            <h2 id="filter-options-title">Filter Results</h2>
+            <h2 id="filter-options-title" aria-label="Choose Filters" tabindex="0">Filter Results</h2>
             <div id="filter-options-container">
-                <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+                <select id="neighborhoods-select" role="listbox" name="neighborhoods" onchange="updateRestaurants()">
                     <option value="all">All Neighborhoods</option>
                 </select>
-                <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
+                <select id="cuisines-select" role="listbox" name="cuisines" onchange="updateRestaurants()">
                     <option value="all">All Cuisines</option>
                 </select>
             </div>

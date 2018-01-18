@@ -14,7 +14,7 @@
 <!-- Beginning header -->
 <header>
     <!-- Beginning nav -->
-    <nav>
+    <nav role="navigation">
         <h1 class="header__title"><a href="/">Restaurant Reviews</a></h1>
     </nav>
     <!-- Beginning breadcrumb -->
@@ -27,14 +27,14 @@
 <!-- End header -->
 
 <!-- Beginning main -->
-<main id="maincontent">
+<main id="maincontent" role="main">
     <!-- Beginning map -->
-    <section id="map-container">
+    <section id="map-container" role="application">
         <div id="map"></div>
     </section>
     <!-- End map -->
     <!-- Beginning restaurant -->
-    <section id="restaurant-container">
+    <section id="restaurant-container" role="region">
         <h1 id="restaurant-name" tabindex="0"></h1>
         <img id="restaurant-img">
         <p id="restaurant-cuisine"></p>
@@ -52,7 +52,7 @@
 <!-- End main -->
 
 <!-- Beginning footer -->
-<footer id="footer">
+<footer id="footer" role="contentinfo">
     Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
 </footer>
 <!-- End footer -->

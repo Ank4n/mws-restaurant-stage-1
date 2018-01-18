@@ -10,17 +10,17 @@
 
 <body>
 <header>
-    <nav>
+    <nav role="navigation">
         <h1 class="header__title"><a href="/">Restaurant Reviews</a></h1>
     </nav>
 </header>
 
-<main id="maincontent">
-    <section id="map-container">
+<main id="maincontent" role="main">
+    <section id="map-container" role="application">
         <div id="map"></div>
     </section>
     <section>
-        <div class="filter-options">
+        <div class="filter-options" role="region">
             <h2 id="filter-options-title" aria-label="Choose Filters" tabindex="0">Filter Results</h2>
             <div id="filter-options-container">
                 <select id="neighborhoods-select" role="listbox" name="neighborhoods" onchange="updateRestaurants()">
@@ -31,7 +31,7 @@
                 </select>
             </div>
         </div>
-        <ul id="restaurants-list"></ul>
+        <ul id="restaurants-list" role="list"></ul>
     </section>
 
 
@@ -53,7 +53,7 @@
     })();
   </script>
 
-<footer id="footer">
+<footer id="footer" role="contentinfo">
     Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
 </footer>
 

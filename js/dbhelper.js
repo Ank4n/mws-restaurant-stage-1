@@ -1,15 +1,20 @@
+const port = 1337 // Change this to your server port
+
+class DBHelper {
 /**
  * Common database helper functions.
  */
-class DBHelper {
 
   /**
    * Database URL.
    * Change this to restaurants.json file location on your server.
    */
-  static get DATABASE_URL() {
-    const port = 8000 // Change this to your server port
-    return `http://localhost:${port}/data/restaurants.json`;
+  static get RESTAURANTS_URL() {
+    return `http://localhost:${port}/restaurants`;
+  }
+
+  static  RESTAURANTS_BY_ID_URL(id) {
+    return `http://localhost:${port}/restaurants/` + id;
   }
 
   /**
@@ -17,11 +22,10 @@ class DBHelper {
    */
   static fetchRestaurants(callback) {
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', DBHelper.DATABASE_URL);
+    xhr.open('GET', DBHelper.RESTAURANTS_URL);
     xhr.onload = () => {
       if (xhr.status === 200) { // Got a success response from server!
-        const json = JSON.parse(xhr.responseText);
-        const restaurants = json.restaurants;
+        const restaurants = JSON.parse(xhr.responseText);
         callback(null, restaurants);
       } else { // Oops!. Got an error from server.
         const error = (`Request failed. Returned status of ${xhr.status}`);
@@ -35,19 +39,18 @@ class DBHelper {
    * Fetch a restaurant by its ID.
    */
   static fetchRestaurantById(id, callback) {
-    // fetch all restaurants with proper error handling.
-    DBHelper.fetchRestaurants((error, restaurants) => {
-      if (error) {
-        callback(error, null);
-      } else {
-        const restaurant = restaurants.find(r => r.id == id);
-        if (restaurant) { // Got the restaurant
-          callback(null, restaurant);
-        } else { // Restaurant does not exist in the database
-          callback('Restaurant does not exist', null);
-        }
-      }
-    });
+      let xhr = new XMLHttpRequest();
+      xhr.open('GET', DBHelper.RESTAURANTS_BY_ID_URL(id));
+      xhr.onload = () => {
+          if (xhr.status === 200) { // Got a success response from server!
+              const restaurant = JSON.parse(xhr.responseText);
+              callback(null, restaurant);
+          } else { // Oops!. Got an error from server.
+              const error = (`Request failed. Returned status of ${xhr.status}`);
+              callback(error, null);
+          }
+      };
+      xhr.send();
   }
 
   /**
@@ -150,7 +153,8 @@ class DBHelper {
    * Restaurant image URL.
    */
   static imageUrlForRestaurant(restaurant) {
-    return (`/img/${restaurant.photograph}`);
+    if (restaurant.photograph === undefined) return `/img/no-image.webp`;
+      return (`/img/${restaurant.photograph}.jpg`);
   }
 
   /**

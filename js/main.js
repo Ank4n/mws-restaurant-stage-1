@@ -8,8 +8,15 @@ var markers = [];
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
 document.addEventListener('DOMContentLoaded', (event) => {
-  fetchNeighborhoods();
-  fetchCuisines();
+      DBHelper.openDb((opened) => {
+          fetchNeighborhoods();
+          fetchCuisines();
+          DBHelper.fetchRestaurantsFromNetwork(() => {
+            updateRestaurants();
+          });
+
+      });
+
 });
 
 /**
@@ -181,3 +188,6 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 }
+
+
+

@@ -1,0 +1,15 @@
+{
+  "name": "Restaurant Reviews",
+  "short_name": "Restaurant Reviews",
+  "start_url": "/restaurant.html",
+  "display": "standalone",
+  "lang": "en-US",
+  "background_color": "#f3f3f3",
+  "theme_color": "#f3f3f3",
+  "description": "Find best restaurants and experiences",
+  "icons": [{
+    "src": "icon.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
+}

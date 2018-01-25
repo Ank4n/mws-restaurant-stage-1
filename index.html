@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="manifest" href="/main.webmanifest">
+    <meta name="theme-color" content="#f3f3f3"/>
     <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css"/>
     <link rel="stylesheet" href="css/styles.css">
     <title>Restaurant Reviews</title>
@@ -23,10 +25,10 @@
         <div class="filter-options" role="region">
             <h2 id="filter-options-title" aria-label="Choose Filters" tabindex="0">Filter Results</h2>
             <div id="filter-options-container">
-                <select id="neighborhoods-select" role="listbox" name="neighborhoods" onchange="updateRestaurants()">
+                <select id="neighborhoods-select" role="listbox" aria-label="neighbourhood filter options" name="neighborhoods" onchange="updateRestaurants()">
                     <option value="all">All Neighborhoods</option>
                 </select>
-                <select id="cuisines-select" role="listbox" name="cuisines" onchange="updateRestaurants()">
+                <select id="cuisines-select" role="listbox" aria-label="cuisine filter options" name="cuisines" onchange="updateRestaurants()">
                     <option value="all">All Cuisines</option>
                 </select>
             </div>

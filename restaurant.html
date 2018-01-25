@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="manifest" href="/restaurant.webmanifest">
+    <meta name="theme-color" content="#f3f3f3"/>
     <!-- Normalize.css for better cross-browser consistency -->
     <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css"/>
     <!-- Main CSS file -->
@@ -36,7 +38,7 @@
     <!-- Beginning restaurant -->
     <section id="restaurant-container" role="region">
         <h1 id="restaurant-name" tabindex="0"></h1>
-        <img id="restaurant-img">
+        <img id="restaurant-img"/>
         <p id="restaurant-cuisine"></p>
         <p id="restaurant-address" tabindex="0"></p>
         <div hidden id="hours-info" aria-label="Restaurant hours"></div>
@@ -66,6 +68,18 @@
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_tKbW6A5pQ-eupxI56myUnHLqYCzOjKo&libraries=places&callback=initMap"></script>
 <!-- End scripts -->
+<script type="application/javascript" charset="utf-8" src="sw.js"></script>
+<script>
+    (function() {
+        if (!navigator.serviceWorker) return;
+
+        navigator.serviceWorker.register('/sw.js', {scope: '/'}).then(function() {
+            console.log('Service Worker registered successfully');
+        }).catch(function(error) {
+            console.log('Service Worker Registration failed: ', error);
+        });
+    })();
+</script>
 
 </body>
 

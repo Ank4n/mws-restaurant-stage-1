@@ -52,6 +52,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 #maincontent {
     background-color: #f3f3f3;
     min-height: 100%;
+    width: 100%;
 }
 
 #footer {
@@ -324,21 +325,11 @@ nav h1 a {
 
 @media screen and (max-width: 700px) {
 
-    .header__title {
-        font-weight: 200;
-        font-size: 2em;
-        margin: 0.5em 0 0.5em;
-        display: inline-block;
+    #detail_navigation{
+        width: calc(100% - 33px);
     }
 
-    .inside header {
-        position: relative;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-    }
-
-    #breadcrumb{
+    .inside {
         width: 100%;
     }
 
@@ -347,7 +338,7 @@ nav h1 a {
         position: relative;
         height: 300px;
         width: 100%;
-        margin: 0 auto 0 auto;
+        margin: 50px 0 0 0;
     }
 
     #restaurant-container, #reviews-container {

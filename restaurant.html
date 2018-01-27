@@ -6,7 +6,8 @@
     <link rel="manifest" href="/restaurant.webmanifest">
     <meta name="theme-color" content="#f3f3f3"/>
     <!-- Main CSS file -->
-    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <link rel="stylesheet" href="css/common.css" type="text/css">
+    <link rel="stylesheet" href="css/detail.css" type="text/css">
     <!-- Normalize.css for better cross-browser consistency -->
     <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" media="print"/>
 
@@ -20,6 +21,8 @@
     <nav id="detail_nav" role="navigation">
         <h1 class="header__title"><a href="/">Restaurant Reviews</a></h1>
     <!-- Beginning breadcrumb -->
+    </nav>
+    <nav>
         <ol id="breadcrumb" aria-label="Breadcrumb">
             <li><a href="/">Home</a></li>
         </ol>
@@ -54,12 +57,6 @@
 </main>
 <!-- End main -->
 
-<!-- Beginning footer -->
-<footer id="footer" role="contentinfo">
-    Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
-</footer>
-<!-- End footer -->
-
 <!-- Beginning scripts -->
 <!-- Database helpers -->
 <script type="text/javascript" src="js/dbhelper.js"></script>
@@ -82,6 +79,11 @@
     })();
 </script>
 
+<!-- Beginning footer -->
+<footer id="footer" role="contentinfo">
+    Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
+</footer>
+<!-- End footer -->
 </body>
 
 </html>

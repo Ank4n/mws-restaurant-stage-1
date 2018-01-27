@@ -4,7 +4,9 @@ self.addEventListener('install', function (event) {
     event.waitUntil(
         caches.open(staticCacheName).then(function (cache) {
             return cache.addAll([
-                'css/styles.css',
+                'css/common.css',
+                'css/main.css',
+                'css/detail.css',
                 'img/1.webp',
                 'img/2.webp',
                 'img/3.webp',
